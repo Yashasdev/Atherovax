@@ -227,7 +227,7 @@ const submit = async (e: FormEvent<HTMLFormElement>) => {
 
   try {
     const response = await fetch(
-      "https://formspree.io/f/https://formspree.io/f/xwllkgpv",
+      "https://formspree.io/f/xwllkgpv",
       {
         method: "POST",
         body: new FormData(form),
