@@ -226,6 +226,7 @@ const submit = async (e: FormEvent<HTMLFormElement>) => {
   const form = e.currentTarget;
 
   try {
+    // First: Send the submission to Formspree
     const response = await fetch(
       "https://formspree.io/f/xwllkgpv",
       {
@@ -238,18 +239,33 @@ const submit = async (e: FormEvent<HTMLFormElement>) => {
     );
 
     if (!response.ok) {
-      throw new Error("Submission failed");
+      throw new Error("Formspree submission failed");
+    }
+
+    // Second: Send a copy to Google Sheets
+    try {
+      await fetch(
+        "https://script.google.com/macros/s/AKfycbwenVHz6yEhmL5qY_SfWBZOGCx_ksDGyXAo5VO57pcOdQGv2kj6zOBWq4VBI648-2i7/exec",
+        {
+          method: "POST",
+          body: new FormData(form),
+          mode: "no-cors",
+        }
+      );
+    } catch (sheetError) {
+      console.error("Google Sheets submission failed:", sheetError);
     }
 
     setSent(true);
     form.reset();
+
   } catch {
     setError(true);
   } finally {
     setSubmitting(false);
   }
 };
-
+  
   const field = "mt-2 w-full rounded-xl border border-navy/15 bg-white px-4 py-3 text-sm focus:border-cyan";
   return (
     <section id="contact" className="bg-mist py-28">
