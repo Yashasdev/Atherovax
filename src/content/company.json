@@ -1,0 +1,18 @@
+{
+  "about": {
+    "title": "",
+    "body": ""
+  },
+  "partnership": {
+    "title": "",
+    "body": ""
+  },
+  "announcements": [],
+  "contact": {
+    "title": "Connect with AtheroVax.",
+    "body": "We welcome inquiries about research collaboration and strategic partnership, as well as questions from investors and the scientific community.",
+    "email": "contact@example.com (PLACEHOLDER — replace with approved address)",
+    "location": "Location: PLACEHOLDER"
+  },
+  "footerNote": "ATH101 is an investigational, preclinical candidate. Safety and effectiveness in humans have not been established. This site is for informational purposes and is not medical advice."
+}
