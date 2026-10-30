@@ -213,8 +213,43 @@ export function Team() {
 }
 
 export function Contact() {
-  const [sent, setSent] = useState(false);
-  const submit = (e: FormEvent) => { e.preventDefault(); setSent(true); };
+  
+const [sent, setSent] = useState(false);
+const [submitting, setSubmitting] = useState(false);
+const [error, setError] = useState(false);
+
+const submit = async (e: FormEvent<HTMLFormElement>) => {
+  e.preventDefault();
+  setSubmitting(true);
+  setError(false);
+
+  const form = e.currentTarget;
+
+  try {
+    const response = await fetch(
+      "https://formspree.io/f/xwllkgpv",
+      {
+        method: "POST",
+        body: new FormData(form),
+        headers: {
+          Accept: "application/json",
+        },
+      }
+    );
+
+    if (!response.ok) {
+      throw new Error("Submission failed");
+    }
+
+    setSent(true);
+    form.reset();
+  } catch {
+    setError(true);
+  } finally {
+    setSubmitting(false);
+  }
+};
+
   const field = "mt-2 w-full rounded-xl border border-navy/15 bg-white px-4 py-3 text-sm focus:border-cyan";
   return (
     <section id="contact" className="bg-mist py-28">
@@ -227,7 +262,7 @@ export function Contact() {
         </Reveal>
         <Reveal delay={120}>
           <form onSubmit={submit} className="rounded-3xl border border-navy/10 bg-white p-8 shadow-xl shadow-navy/5">
-            <p className="mb-6 rounded-xl bg-cyan/10 px-4 py-3 text-xs text-midnight">Demonstration form: no backend is connected and messages are not delivered.</p>
+          
             <div className="grid gap-5 sm:grid-cols-2">
               <label className="text-sm font-medium">Name<input required name="name" autoComplete="name" className={field} /></label>
               <label className="text-sm font-medium">Email<input required type="email" name="email" autoComplete="email" className={field} /></label>
@@ -237,8 +272,27 @@ export function Contact() {
               </label>
             </div>
             <label className="mt-5 block text-sm font-medium">Message<textarea required name="message" rows={5} className={field} /></label>
-            <button type="submit" className="mt-6 inline-flex items-center gap-2 rounded-full bg-navy px-7 py-3.5 text-sm font-semibold text-white transition hover:bg-midnight">Send (demo) <ArrowRight size={16} /></button>
-            {sent && <p role="status" className="mt-4 text-sm text-midnight">Demo only: nothing was sent. Connect a form backend or approved email address to enable inquiries.</p>}
+            <button 
+              type="submit" 
+              disabled={submitting || sent}
+              className="mt-6 inline-flex items-center gap-2 rounded-full bg-navy px-7 py-3.5 text-sm font-semibold text-white transition hover:bg-midnight disabled:opacity-60"
+            >
+              {submitting ? "Sending..." : sent ? "Message sent!" : "Send"}
+              {!submitting && !sent && <ArrowRight size={16} />}
+            </button>
+            
+             {sent && (
+                 <p role="status" className="mt-4 text-sm text-midnight">
+                  Thank you! Your message has been sent successfully.
+                 </p>
+              )}
+
+              {error && (
+                 <p role="alert" className="mt-4 text-sm text-red-600">
+                 Sorry, your message could not be sent. Please try again.
+                 </p>
+               )}
+
           </form>
         </Reveal>
       </Container>
