@@ -1,0 +1,17 @@
+{
+  "title": "Advancing a new approach to cardiovascular immunotherapy.",
+  "intro": "ATH101 is a preclinical research program. Later stages below are shown for orientation only and have not been reached.",
+  "currentStage": 1,
+  "stages": [
+    "Preclinical Research",
+    "IND-Enabling Studies",
+    "Clinical Development",
+    "Regulatory Review"
+  ],
+  "earlyResearch": {
+    "title": "Early Research",
+    "body": "The supplied presentation describes reduced plaque coverage in treated groups versus a diseased control in an experimental mouse model. These results are preclinical. Safety and effectiveness in humans have not been established.",
+    "figureNote": "PLACEHOLDER — approved research figure. Insert only once cleared for public release."
+  },
+  "researchUpdates": []
+}

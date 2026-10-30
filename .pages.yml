@@ -1,0 +1,216 @@
+# Pages CMS configuration for the AtheroVax website.
+# Editors use https://app.pagescms.org . Each entry below is one editable page of the site.
+# Technical settings (form endpoints, layout, code) are deliberately NOT exposed here.
+
+media:
+  input: public/images
+  output: /images
+
+content:
+  - name: home
+    label: Homepage
+    type: file
+    path: src/content/home.json
+    format: json
+    fields:
+      - name: hero
+        label: Top banner
+        type: object
+        fields:
+          - { name: eyebrow, label: Small label above the headline, type: string }
+          - { name: headline, label: Main headline, type: text, required: true }
+          - { name: sub, label: Subtitle, type: text, required: true }
+          - name: primaryCta
+            label: First button
+            type: object
+            fields:
+              - { name: label, label: Button text, type: string, required: true }
+              - { name: href, label: "Where it goes (#science, #team, #contact, or a full https:// link)", type: string, required: true }
+          - name: secondaryCta
+            label: Second button
+            type: object
+            fields:
+              - { name: label, label: Button text, type: string, required: true }
+              - { name: href, label: "Where it goes (#science, #team, #contact, or a full https:// link)", type: string, required: true }
+      - { name: mission, label: Mission statement (shown under the top banner only when filled in), type: text }
+      - name: featuredImages
+        label: Featured images (shown under the top banner only when added)
+        type: object
+        list: true
+        fields:
+          - { name: image, label: Image, type: image }
+          - { name: alt, label: Image description (for screen readers), type: string }
+          - { name: caption, label: Caption, type: string }
+      - name: challenge
+        label: Scientific overview - The Challenge
+        type: object
+        fields:
+          - { name: title, label: Section label, type: string, required: true }
+          - { name: headline, label: Headline, type: string, required: true }
+          - { name: body, label: Paragraphs, type: text, list: true, required: true }
+      - name: approach
+        label: Scientific overview - A Different Approach
+        type: object
+        fields:
+          - { name: title, label: Section label, type: string, required: true }
+          - { name: headline, label: Headline, type: string, required: true }
+          - { name: body, label: Paragraphs, type: text, list: true, required: true }
+      - name: lead
+        label: Lead program card
+        type: object
+        fields:
+          - { name: label, label: Card label, type: string }
+          - { name: name, label: Program name, type: string, required: true }
+          - { name: status, label: Status badge, type: string, required: true }
+          - { name: body, label: Description, type: text, required: true }
+          - { name: linkLabel, label: Link text, type: string }
+          - { name: href, label: Link destination, type: string }
+
+  - name: science
+    label: Our Science
+    type: file
+    path: src/content/science.json
+    format: json
+    fields:
+      - { name: title, label: Section headline, type: text, required: true }
+      - { name: disclaimer, label: "Preclinical notice (keep this accurate)", type: text, required: true }
+      - name: steps
+        label: Mechanism steps (shown in order, numbered automatically)
+        type: object
+        list: true
+        fields:
+          - { name: title, label: Step title, type: string, required: true }
+          - { name: body, label: Explanation, type: text, required: true }
+      - name: explore
+        label: '"Explore the science" questions'
+        type: object
+        list: true
+        fields:
+          - { name: q, label: Question, type: string, required: true }
+          - { name: a, label: Answer, type: text, required: true }
+      - name: landscape
+        label: Where this research fits
+        type: object
+        fields:
+          - { name: title, label: Headline, type: string, required: true }
+          - { name: intro, label: Introduction, type: text, required: true }
+          - name: items
+            label: Approaches compared
+            type: object
+            list: true
+            fields:
+              - { name: t, label: Name, type: string, required: true }
+              - { name: d, label: Description, type: text, required: true }
+              - { name: highlight, label: Highlight this card, type: boolean }
+
+  - name: development
+    label: Development & Early Research
+    type: file
+    path: src/content/development.json
+    format: json
+    fields:
+      - { name: title, label: Headline, type: text, required: true }
+      - { name: intro, label: Introduction, type: text, required: true }
+      - { name: currentStage, label: "Current stage number (1 = first stage in the list below)", type: number, required: true, options: { min: 1, max: 10 } }
+      - { name: stages, label: Stages (in order), type: string, list: true, required: true }
+      - name: earlyResearch
+        label: Early Research
+        type: object
+        fields:
+          - { name: title, label: Title, type: string, required: true }
+          - { name: body, label: Text (must state results are preclinical), type: text, required: true }
+          - { name: figure, label: Approved research figure (leave empty to keep the placeholder), type: image }
+          - { name: figureAlt, label: Figure description (for screen readers), type: string }
+          - { name: figureNote, label: Placeholder text (shown when no figure), type: string }
+      - name: researchUpdates
+        label: Research updates (shown only when added)
+        type: object
+        list: true
+        fields:
+          - { name: title, label: Title, type: string, required: true }
+          - { name: date, label: Date (e.g. March 2026), type: string }
+          - { name: body, label: Description, type: text }
+
+  - name: publications
+    label: Publications & Sources
+    type: file
+    path: src/content/publications.json
+    format: json
+    fields:
+      - name: items
+        label: Publications (drag to reorder)
+        type: object
+        list: true
+        fields:
+          - { name: title, label: Title, type: string, required: true }
+          - { name: authors, label: Authors, type: string }
+          - { name: date, label: Date, type: string }
+          - { name: description, label: Short description, type: text }
+          - { name: doi, label: "DOI (e.g. 10.1000/xyz123)", type: string }
+          - { name: url, label: "Web link (used instead of the DOI link if filled in)", type: string }
+          - { name: image, label: Image, type: image }
+
+  - name: team
+    label: Team
+    type: file
+    path: src/content/team.json
+    format: json
+    fields:
+      - { name: title, label: Section headline, type: text, required: true }
+      - { name: note, label: Small note under the headline, type: string }
+      - name: members
+        label: Team members (drag to change display order)
+        type: object
+        list: true
+        fields:
+          - { name: name, label: Name, type: string, required: true }
+          - { name: role, label: Title / role, type: string, required: true }
+          - { name: bio, label: Biography, type: text, required: true }
+          - { name: photo, label: Headshot (leave empty for a placeholder), type: image }
+          - { name: href, label: Profile link (optional), type: string }
+
+  - name: company
+    label: Company Information
+    type: file
+    path: src/content/company.json
+    format: json
+    fields:
+      - name: about
+        label: About (shown only when filled in)
+        type: object
+        fields:
+          - { name: title, label: Heading, type: string }
+          - { name: body, label: Text, type: text }
+      - name: partnership
+        label: Partnership information (shown only when filled in)
+        type: object
+        fields:
+          - { name: title, label: Heading, type: string }
+          - { name: body, label: Text, type: text }
+      - name: announcements
+        label: Company announcements (shown only when added)
+        type: object
+        list: true
+        fields:
+          - { name: title, label: Title, type: string, required: true }
+          - { name: date, label: Date, type: string }
+          - { name: body, label: Details, type: text }
+      - name: contact
+        label: Contact section & details
+        type: object
+        fields:
+          - { name: title, label: Headline, type: string, required: true }
+          - { name: body, label: Introduction, type: text, required: true }
+          - { name: email, label: Public contact email shown on the site, type: string }
+          - { name: location, label: Location shown on the site, type: string }
+      - { name: footerNote, label: Footer notice, type: text, required: true }
+
+  - name: contact-form
+    label: Contact Form Wording
+    type: file
+    path: src/content/contact-form.json
+    format: json
+    fields:
+      - { name: inquiryTypes, label: Inquiry type choices, type: string, list: true, required: true }
+      - { name: successMessage, label: Message shown after sending, type: string, required: true }
+      - { name: errorMessage, label: Message shown if sending fails, type: string, required: true }

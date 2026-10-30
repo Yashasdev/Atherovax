@@ -1,0 +1,23 @@
+{
+  "members": [
+    {
+      "name": "Klaus Ley, MD",
+      "role": "Founder",
+      "bio": "Cardiovascular immunology researcher and Founding Co-Director of the Immunology Center of Georgia at Augusta University. His work studies immune responses in atherosclerosis and the potential for immune-directed therapies.",
+      "href": "https://www.augusta.edu/centers/immcg/klaus-ley.php"
+    },
+    {
+      "name": "Eric Topol, MD",
+      "role": "Co-founder",
+      "bio": "Cardiologist, physician-scientist, and leader of the Scripps Research Translational Institute.",
+      "href": "https://www.scripps.edu/faculty/topol/"
+    },
+    {
+      "name": "Clive Meanwell, MD, PhD",
+      "role": "Investor",
+      "bio": "Biopharmaceutical entrepreneur, co-founder of Population Health Partners, and founder and former CEO of The Medicines Company."
+    }
+  ],
+  "title": "Grounded in scientific discovery. Driven by cardiovascular innovation.",
+  "note": "Draft content. Affiliations and company roles require approval before publication."
+}
