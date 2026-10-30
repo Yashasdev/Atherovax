@@ -290,7 +290,7 @@ const submit = async (e: FormEvent<HTMLFormElement>) => {
             <label className="mt-5 block text-sm font-medium">Message<textarea required name="message" rows={5} className={field} /></label>
             <button 
               type="submit" 
-              disabled={submitting || sent}
+              disabled={submitting}
               className="mt-6 inline-flex items-center gap-2 rounded-full bg-navy px-7 py-3.5 text-sm font-semibold text-white transition hover:bg-midnight disabled:opacity-60"
             >
               {submitting ? "Sending..." : sent ? "Message sent!" : "Send"}
