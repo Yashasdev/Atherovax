@@ -294,7 +294,7 @@ const submit = async (e: FormEvent<HTMLFormElement>) => {
               className="mt-6 inline-flex items-center gap-2 rounded-full bg-navy px-7 py-3.5 text-sm font-semibold text-white transition hover:bg-midnight disabled:opacity-60"
             >
               {submitting ? "Sending..." : "Send"}
-              {!submitting && !sent && <ArrowRight size={16} />}
+              {!submitting && <ArrowRight size={16} />}
             </button>
             
              {sent && (
