@@ -1,0 +1,41 @@
+{
+  "hero": {
+    "eyebrow": "Preclinical · Investigational",
+    "headline": "Rethinking cardiovascular disease through immune tolerance.",
+    "sub": "AtheroVax is developing an investigational approach to atherosclerosis designed to address immune-driven inflammation within the arteries.",
+    "primaryCta": {
+      "label": "Explore Our Science",
+      "href": "#science"
+    },
+    "secondaryCta": {
+      "label": "Meet the Team",
+      "href": "#team"
+    }
+  },
+  "mission": "",
+  "featuredImages": [],
+  "challenge": {
+    "title": "The Challenge",
+    "headline": "Plaque builds quietly inside artery walls.",
+    "body": [
+      "Atherosclerosis occurs when plaque builds up within artery walls, narrowing and stiffening the vessels that carry blood through the body.",
+      "Inflammation plays a role in how the disease progresses. Existing cardiovascular treatments address important risk factors, but inflammatory processes remain an area of active investigation."
+    ]
+  },
+  "approach": {
+    "title": "A Different Approach",
+    "headline": "Calm the response, not just the risk factor.",
+    "body": [
+      "The immune system can contribute to chronic inflammation in the arterial wall. Restoring tolerance to specific molecular targets may represent a new therapeutic strategy.",
+      "AtheroVax is investigating whether teaching the immune system a calmer, antigen-specific response could reduce that inflammation. This idea remains under preclinical investigation."
+    ]
+  },
+  "lead": {
+    "label": "Our Lead Program",
+    "name": "ATH101",
+    "status": "Preclinical · Investigational candidate",
+    "body": "ATH101 combines selected ApoB peptide fragments with a biodegradable PLGA nanoparticle carrier, designed to encourage an antigen-specific regulatory immune response. It has not been tested in people.",
+    "linkLabel": "See the science",
+    "href": "#science"
+  }
+}

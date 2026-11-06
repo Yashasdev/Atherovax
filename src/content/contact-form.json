@@ -1,0 +1,10 @@
+{
+  "inquiryTypes": [
+    "Research collaboration",
+    "Strategic partnership",
+    "Investor inquiry",
+    "Media / general"
+  ],
+  "successMessage": "Thank you! Your message has been sent successfully.",
+  "errorMessage": "Sorry, your message could not be sent. Please try again."
+}

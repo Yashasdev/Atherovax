@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import { Menu, X } from "lucide-react";
 import { nav } from "./content";
-import { Approach, Challenge, Contact, Development, Footer, Hero, Landscape, Science, Team } from "./components/Sections";
+import { Approach, Challenge, Company, Contact, Development, Footer, Hero, Highlights, Landscape, Science, Team } from "./components/Sections";
 
 function Header() {
   const [open, setOpen] = useState(false);
@@ -41,12 +41,14 @@ export default function App() {
       <Header />
       <main>
         <Hero />
+        <Highlights />
         <Challenge />
         <Approach />
         <Science />
         <Landscape />
         <Development />
         <Team />
+        <Company />
         <Contact />
       </main>
       <Footer />
